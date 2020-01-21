@@ -7,25 +7,40 @@ extends Node2D
 #de anubarak para quien lo necesite
 #licencia MIT :D
 
-var tileMap
+var loDeLosTiles
+
 func _ready():
-	tileMap = $TileMap
-	#se toma el nodo hijo para mayor comodidad
+	loDeLosTiles = get_node("loDeLosTiles")
+	#se toma un puntero al nodo hijo para mayor comodidad
 
 func _input(event):
 	if(event is InputEventMouseButton):
 		#toma las presiones del mouse
 		if(event.button_index == BUTTON_LEFT and event.pressed):
 			#en caso de presionar el boton izquierdo
-			var tilePos = tileMap.world_to_map(event.position)
+			var tilePos = loDeLosTiles.world_to_map(event.position)
 			#toma un vector(x,y) y lo traduce en coordenadas de malla
-			tileMap.set_cellv(tilePos, 0)
+			loDeLosTiles.set_cellv(tilePos, 0)
 			#cambia la celda de la posicion por el sprite 0
 		
 		if(event.button_index == BUTTON_RIGHT and event.pressed):
 			#igual pero con el boton contrario
-			var tilePos = tileMap.world_to_map(event.position)
+			var tilePos = loDeLosTiles.world_to_map(event.position)
 			#exactamente lo mismo, pero la posicion cambiará
-			tileMap.set_cellv(tilePos, -1)
+			loDeLosTiles.set_cellv(tilePos, -1)
 			#un -1 va a eliminar el sprite en ese sitio de la malla
-	
+
+func guardar():
+	var archivador = File.new()
+	archivador.open("user://juegoGuardado.save", File.WRITE)
+	archivador.store_var(loDeLosTiles, true)
+	archivador.close()
+
+func cargar():
+	var desarchivar = File.new()
+	desarchivar.open("user://juegoGuardado.save", File.READ)
+	loDeLosTiles.queue_free()
+	loDeLosTiles = desarchivar.get_var(true);
+	print(loDeLosTiles.get_name())
+	desarchivar.close()
+	add_child(loDeLosTiles)
