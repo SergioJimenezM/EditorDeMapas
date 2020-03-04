@@ -51,4 +51,4 @@ func cargar():
 	add_child(loDeLosTiles)
 	
 func salir():
-	guardar()
+	get_tree().quit()

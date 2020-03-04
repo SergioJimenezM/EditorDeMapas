@@ -49,5 +49,9 @@ margin_top = 500.0
 margin_right = 100.0
 margin_bottom = 550.0
 text = "Finalizar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="camara/botonera/Cargar" to="." method="cargar"]
 [connection signal="pressed" from="camara/botonera/Guardar" to="." method="guardar"]
+[connection signal="pressed" from="camara/botonera/Salir" to="." method="salir"]
