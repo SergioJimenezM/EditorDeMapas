@@ -36,17 +36,20 @@ func _unhandled_input(event):
 			#un -1 va a eliminar el sprite en ese sitio de la malla
 
 func guardar():
-	var archivador = File.new()
-	archivador.open("user://juegoGuardado.save", File.WRITE)
-	archivador.store_var(loDeLosTiles, true)
-	archivador.close()
+#	var archivador = File.new()
+	var archivo = FileDialog.new()
+	archivo.set_current_dir("user://")
+	$camara.add_child(archivo)
+	
+#	archivador.open("user://juegoGuardado.save", File.WRITE)
+#	archivador.store_var(loDeLosTiles, true)
+#	archivador.close()
 
 func cargar():
 	var desarchivar = File.new()
 	desarchivar.open("user://juegoGuardado.save", File.READ)
 	loDeLosTiles.queue_free()
 	loDeLosTiles = desarchivar.get_var(true);
-	print(loDeLosTiles.get_name())
 	desarchivar.close()
 	add_child(loDeLosTiles)
 	
