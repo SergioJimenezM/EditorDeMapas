@@ -4,7 +4,7 @@ Prototipo que edita una malla TileMap para crear mapas 2D con bloques predefinid
 + Colocacion de los (dos)tipos de bloque existente con el boton derecho
 + Eliminacion de bloques con el boton izquierdo
 + Guarda y carga la malla
-+ La malla no es modificada cuando está bajo los botones(x=130, y)
++ La malla no es modificada cuando está bajo los botones(_unhandled _input())
 
 - El boton salir no funciona(ni es urgente)
 - No es posible mover la cámara por toda la malla
