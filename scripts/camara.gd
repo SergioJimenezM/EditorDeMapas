@@ -2,9 +2,14 @@ extends Camera2D
 
 export var velocidadDeLaCamara = 15
 
+export var limiteInferior = 560
+export var limiteSuperior = -560
+export var limiteDerecho = 830
+export var limiteIzquierdo = -830
+
 func _process(delta):
-	var posicion =  get_global_position()
-	var botonera = $botonera.get_global_position()
+	var posicion =  position
+	
 	#Guarda un bit hacia la direccion del movimiento en eje X
 	var moverX = int(Input.is_action_pressed("ui_left")) - int(Input.is_action_pressed("ui_right"))
 	#guarda un bit hacia la direccion del movimiento en eje Y
@@ -17,18 +22,20 @@ func _process(delta):
 	#lerp es interpolacion lineal
 	#consigue un valor perteneciente a la función asociada que estamos creando
 	#la formula traza una recta entre dos valores y así se calcula el movimiento
-	print($botonera.get_global_position())
-	#tomar la botonera y fijarla en posiciones relativas a estas
-	if posicion.x >= 680:#No son 1200 reales
-		posicion.x = posicion.x - 10
-	if posicion.x <= -685:
-		posicion.x = posicion.x + 10
-	if posicion.y >= 900:
-		posicion.y = posicion.y - 10
-	if posicion.y <= -900:
-		posicion.y = posicion.y + 10
-	botonera.x = (posicion.x - 525)
-	botonera.y = (posicion.y - 290)
-	$botonera.set_global_position(botonera)#hay que alterar esta posicion
-	set_global_position(posicion)
+	
+	if(posicion.x <= limiteSuperior):
+		posicion.x += velocidadDeLaCamara
+		
+	if( posicion.x >= limiteInferior):
+		posicion.x -= velocidadDeLaCamara
+		
+	if(posicion.y <= limiteIzquierdo):
+		posicion.y += velocidadDeLaCamara
+		
+	if(posicion.y >= limiteDerecho):
+		posicion.y -= velocidadDeLaCamara
+	
+	position = posicion
+	
+	#Reparacion MAL para los botones que se salen del mapa
 	

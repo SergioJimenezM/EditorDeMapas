@@ -19,25 +19,18 @@ __meta__ = {
 }
 
 [node name="camara" type="Camera2D" parent="."]
-position = Vector2( 515.608, 306.964 )
+position = Vector2( -548.629, -824.971 )
 current = true
-limit_left = -1200
-limit_top = -1200
-limit_right = 1200
-limit_bottom = 1200
 editor_draw_limits = true
+editor_draw_drag_margin = true
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="botonera" type="Control" parent="camara"]
-margin_left = -515.581
-margin_top = -306.084
-margin_right = -375.581
-margin_bottom = 296.916
+margin_left = -638.951
+margin_top = -355.822
+margin_right = -498.951
+margin_bottom = 361.178
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -48,7 +41,6 @@ margin_right = 100.0
 margin_bottom = 170.0
 text = "Cargar"
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -59,18 +51,16 @@ margin_right = 100.0
 margin_bottom = 80.0
 text = "Guardar"
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="btnSalir" type="Button" parent="camara/botonera"]
-margin_left = 30.0
-margin_top = 500.0
-margin_right = 100.0
-margin_bottom = 550.0
+margin_left = 31.7838
+margin_top = 597.341
+margin_right = 101.784
+margin_bottom = 647.341
 text = "Finalizar"
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="camara/botonera/btnCargar" to="." method="presionadoCargar"]
