@@ -8,11 +8,13 @@ extends Node2D
 #licencia MIT :D
 
 var loDeLosTiles
+var cosaDeCamara
 var spriteActual = 0
 var directorioAbierto = 0
 var dialogo = 0
 func _ready():
 	loDeLosTiles = get_node("loDeLosTiles")
+	cosaDeCamara = get_node("camara")
 	#se toma un puntero al nodo hijo para mayor comodidad
 
 #Si un input event no es respondido, se ejecuta este metodo
@@ -80,6 +82,6 @@ func cargar(path):
 	loDeLosTiles = desarchivar.get_var(true);
 	desarchivar.close()
 	add_child(loDeLosTiles)
-	
+
 func salir():
 	get_tree().quit()

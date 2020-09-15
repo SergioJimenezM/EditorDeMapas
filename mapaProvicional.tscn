@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scripts/editorScript.gd" type="Script" id=1]
+[ext_resource path="res://scripts/editorDeMapas.gd" type="Script" id=1]
 [ext_resource path="res://tileSet/tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://scripts/camara.gd" type="Script" id=3]
 
@@ -26,43 +26,155 @@ editor_draw_drag_margin = true
 script = ExtResource( 3 )
 
 [node name="botonera" type="Control" parent="camara"]
-margin_left = -638.951
-margin_top = -355.822
-margin_right = -498.951
-margin_bottom = 361.178
+margin_left = -641.0
+margin_top = -359.0
+margin_right = -491.0
+margin_bottom = 361.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btnCargar" type="Button" parent="camara/botonera"]
-margin_left = 30.0
-margin_top = 120.0
-margin_right = 100.0
-margin_bottom = 170.0
+margin_left = 13.0
+margin_top = 74.0
+margin_right = 140.0
+margin_bottom = 114.0
 text = "Cargar"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btnGuardar" type="Button" parent="camara/botonera"]
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 100.0
-margin_bottom = 80.0
+margin_left = 13.0
+margin_top = 14.0
+margin_right = 140.0
+margin_bottom = 54.0
 text = "Guardar"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btnSalir" type="Button" parent="camara/botonera"]
-margin_left = 31.7838
-margin_top = 597.341
-margin_right = 101.784
-margin_bottom = 647.341
+margin_left = 13.0
+margin_top = 664.0
+margin_right = 140.0
+margin_bottom = 704.0
 text = "Finalizar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="teVelocidadDeLaCamara" type="TextEdit" parent="camara/botonera"]
+margin_left = 9.62903
+margin_top = 183.971
+margin_right = 136.629
+margin_bottom = 222.971
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="teLimiteInferior" type="TextEdit" parent="camara/botonera"]
+margin_left = 13.0
+margin_top = 253.971
+margin_right = 140.0
+margin_bottom = 292.971
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="teLimiteSuperior" type="TextEdit" parent="camara/botonera"]
+margin_left = 13.0
+margin_top = 333.971
+margin_right = 140.0
+margin_bottom = 372.971
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="teLimiteDerecho" type="TextEdit" parent="camara/botonera"]
+margin_left = 13.0
+margin_top = 413.971
+margin_right = 140.0
+margin_bottom = 452.971
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="teLimiteIzquierdo" type="TextEdit" parent="camara/botonera"]
+margin_left = 13.0
+margin_top = 493.971
+margin_right = 140.0
+margin_bottom = 532.971
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Aceptar cambios" type="Button" parent="camara/botonera"]
+margin_left = 13.0
+margin_top = 563.971
+margin_right = 140.0
+margin_bottom = 603.971
+text = "Aceptar Cambios"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="txtVelocidadDeLaCamara" type="Label" parent="camara/botonera"]
+margin_left = 10.0
+margin_top = 144.0
+margin_right = 137.0
+margin_bottom = 175.0
+text = "Velocidad de la camara"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="txtLimiteInferior" type="Label" parent="camara/botonera"]
+margin_left = 10.0
+margin_top = 233.971
+margin_right = 137.0
+margin_bottom = 264.971
+text = "Limite Inferior
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="txtLimiteSuperior" type="Label" parent="camara/botonera"]
+margin_left = 13.0
+margin_top = 314.0
+margin_right = 140.0
+margin_bottom = 344.0
+text = "Limite Superior"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="txtLimiteIzquierdo" type="Label" parent="camara/botonera"]
+margin_left = 13.0
+margin_top = 473.971
+margin_right = 140.0
+margin_bottom = 503.971
+text = "Limite Izquierdo"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="txtLimiteDerecho" type="Label" parent="camara/botonera"]
+margin_left = 13.0
+margin_top = 393.971
+margin_right = 140.0
+margin_bottom = 423.971
+text = "Limite Derecho"
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="camara/botonera/btnCargar" to="." method="presionadoCargar"]
 [connection signal="pressed" from="camara/botonera/btnGuardar" to="." method="presionadoGuardar"]
 [connection signal="pressed" from="camara/botonera/btnSalir" to="." method="salir"]
+[connection signal="pressed" from="camara/botonera/Aceptar cambios" to="camara" method="deGuiACamara"]

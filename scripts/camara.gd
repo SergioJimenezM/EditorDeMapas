@@ -7,6 +7,20 @@ export var limiteSuperior = -560
 export var limiteDerecho = 830
 export var limiteIzquierdo = -830
 
+func _ready():
+	$botonera/teVelocidadDeLaCamara.text = String(velocidadDeLaCamara)
+	$botonera/teLimiteInferior.text = String(limiteInferior)
+	$botonera/teLimiteSuperior.text = String(limiteSuperior)
+	$botonera/teLimiteDerecho.text = String(limiteDerecho)
+	$botonera/teLimiteIzquierdo.text = String(limiteIzquierdo)
+
+func deGuiACamara():
+	velocidadDeLaCamara = $botonera/teVelocidadDeLaCamara.text.to_int()
+	limiteInferior = $botonera/teLimiteInferior.text.to_int()
+	limiteSuperior = $botonera/teLimiteSuperior.text.to_int()
+	limiteDerecho = $botonera/teLimiteDerecho.text.to_int()
+	limiteIzquierdo = $botonera/teLimiteIzquierdo.text.to_int()
+
 func _process(delta):
 	var posicion =  position
 	
